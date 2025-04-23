@@ -50,16 +50,16 @@ const ParkingFinderHome = () => {
                     (position) => {
                         //console.error("Position:", position);
 
-                        // const { latitude, longitude } = position.coords;
-                        // const location = {
-                        //     latitude,
-                        //     longitude,
-                        //     latitudeDelta: 0.015,
-                        //     longitudeDelta: 0.0121,
-                        // };
-                        // setRegion(location);
-                        setCurrentLocation({ latitude: 40.748817, longitude: -73.985428 });
-                        fetchParkingSpots(40.748817, -73.985428);
+                        const { latitude, longitude } = position.coords;
+                        const location = {
+                            latitude,
+                            longitude,
+                            latitudeDelta: 0.015,
+                            longitudeDelta: 0.0121,
+                        };
+                        setRegion(location);
+                        setCurrentLocation({ latitude, longitude});
+                        fetchParkingSpots(latitude, longitude);
                     },
                     (error) => {
                         console.error("Error getting location:", error);
